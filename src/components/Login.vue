@@ -35,6 +35,14 @@
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
+  computed: mapGetters(['authenticating', 'authenticated']),
+  watch: {
+    authenticated (newVal, oldVal) {
+      if (newVal && !oldVal) {
+        this.$router.push('/')
+      }
+    }
+  },
   data () {
     return {
       loginForm: {
@@ -43,7 +51,6 @@ export default {
       }
     }
   },
-  computed: mapGetters(['authenticating']),
   methods: {
     ...mapActions(['login']),
     handleLogin (e) {

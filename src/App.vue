@@ -7,7 +7,8 @@
             SocialMoneyProject
           </div>
           <div class="column has-text-right">
-            Login
+            <router-link to="/login" v-show="!authenticated">Login</router-link>
+            <span @click="logoutUser" v-show="authenticated">Logout</span>
           </div>
         </div>
       </div>
@@ -19,8 +20,20 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
+
 export default {
-  name: 'App'
+  name: 'App',
+  methods: {
+    ...mapActions(['logout']),
+    logoutUser () {
+      this.logout()
+      this.$router.replace({ name: 'Login' })
+    }
+  },
+  computed: {
+    ...mapGetters(['authenticated'])
+  }
 }
 </script>
 

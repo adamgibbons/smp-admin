@@ -5,7 +5,7 @@ const state = {
     name: null,
     email: null
   },
-  auth: false,
+  auth: !!localStorage.getItem('token'),
   token: null,
   authenticating: false
 }
@@ -45,7 +45,7 @@ const actions = {
       })
   },
   logout ({ commit }) {
-    localStorage.removeItem('id_token')
+    localStorage.removeItem('token')
     commit('logout')
   }
 }
@@ -57,10 +57,10 @@ const mutations = {
   toggleAuthenticating (state, { isAuthenticating }) {
     state.authenticating = isAuthenticating
   },
-  login (state, { name, email, token, auth }) {
+  login (state, { name, email, token }) {
     state.user.name = name
     state.user.email = email
-    state.auth = auth
+    state.auth = true
     state.token = token
   },
   logout (state) {
