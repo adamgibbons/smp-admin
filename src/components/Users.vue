@@ -9,12 +9,14 @@
           <th>Email</th>
           <th>Created</th>
           <th>Updated</th>
-          <th> </th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="({name, email}, index) in users" :key="index">
-          <td>{{name}}</td>
+        <tr v-for="({name, email, _id}, index) in users" :key="index">
+          <td>
+            <router-link :to="{name: 'User', params: { id: _id }}">{{name}}</router-link>
+          </td>
           <td>{{email}}</td>
           <td>timestamp</td>
           <td>timestamp</td>

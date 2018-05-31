@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Login from '@/components/Login'
 import Users from '@/components/Users'
+import User from '@/components/User'
 
 Vue.use(Router)
 
@@ -20,6 +21,11 @@ const router = new Router({
       path: '/users',
       name: 'Users',
       component: Users
+    },
+    {
+      path: '/users/:id',
+      name: 'User',
+      component: User
     }
   ]
 })

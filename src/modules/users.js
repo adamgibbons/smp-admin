@@ -1,12 +1,16 @@
 import axios from 'axios'
 
 const state = {
-  users: []
+  users: [],
+  selectedUser: {}
 }
 
 const getters = {
   users: state => {
     return state.users
+  },
+  selectedUser: state => {
+    return state.selectedUser
   }
 }
 
@@ -19,12 +23,24 @@ const actions = {
       .catch((error) => {
         console.log(error)
       })
+  },
+  fetchUser ({ commit }, { id }) {
+    axios.get(`${process.env.API_URL}users/${id}`)
+      .then(({ data }) => {
+        commit('setUser', { user: data })
+      })
+      .catch((error) => {
+        console.log(error)
+      })
   }
 }
 
 const mutations = {
   setUsers (state, { users }) {
     state.users = users
+  },
+  setUser (state, { user }) {
+    state.selectedUser = user
   }
 }
 

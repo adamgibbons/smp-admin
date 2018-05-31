@@ -4,7 +4,7 @@
       <div class="container-fluid">
         <div class="columns">
           <div class="column">
-            SocialMoneyProject
+            <router-link to="/">SocialMoneyProject</router-link>
           </div>
           <div class="column has-text-right">
             <router-link to="/login" v-show="!authenticated">Login</router-link>
