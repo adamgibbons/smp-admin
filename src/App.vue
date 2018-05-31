@@ -1,7 +1,20 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <div class="primary-navigation">
+      <div class="container-fluid">
+        <div class="columns">
+          <div class="column">
+            SocialMoneyProject
+          </div>
+          <div class="column has-text-right">
+            Login
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <router-view/>
+    </div>
   </div>
 </template>
 
@@ -12,12 +25,9 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.primary-navigation {
+  background: #ddd;
+  padding: 1em 2em;
+  margin-bottom: 3em;
 }
 </style>
