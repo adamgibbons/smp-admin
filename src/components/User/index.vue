@@ -4,39 +4,46 @@
     <hr>
     <div class="columns">
       <div class="column">
-
-        <div v-show="activeSection === 'personal'">
-          <h4 class="title is-4">Personal Information</h4>
-          <div class="field">
-            <div class="label">Gender</div>
-            <div class="value">{{personal.gender}}</div>
-          </div>
-          <div class="field">
-            <div class="label">Education</div>
-            <div class="value">{{personal.education}}</div>
-          </div>
-          <div class="field">
-            <div class="label">Age</div>
-            <div class="value">{{personal.age}}</div>
-          </div>
-          <div class="field">
-            <div class="label">Marital Status</div>
-            <div class="value">{{personal.maritalStatus}}</div>
-          </div>
-          <div class="field">
-            <div class="label">Dependents</div>
-            <div class="value">{{personal.dependents}}</div>
-          </div>
-          <div class="field">
-            <div class="label">occupation</div>
-            <div class="value">{{personal.occupationSpouse}}</div>
-          </div>
-          <div class="field">
-            <div class="label">Employment</div>
-            <div class="value">{{personal.employment}}</div>
-          </div>
-        </div>
-
+        <Personal
+          v-show="activeSection === 'personal'"
+          :personal="personal"
+        />
+        <Financial
+          v-show="activeSection === 'financial'"
+          :financial="financial"
+        />
+        <Housing
+          v-show="activeSection === 'housing'"
+          :housing="housing"
+        />
+        <Utilities
+          v-show="activeSection === 'utilities'"
+          :utilities="utilities"
+        />
+        <Savings
+          v-show="activeSection === 'savings'"
+          :savings="savings"
+        />
+        <Insurance
+          v-show="activeSection === 'insurance'"
+          :insurance="insurance"
+        />
+        <LivingExpenses
+          v-show="activeSection === 'livingExpenses'"
+          :livingExpenses="livingExpenses"
+        />
+        <ConsumerDebt
+          v-show="activeSection === 'consumerDebt'"
+          :consumerDebt="consumerDebt"
+        />
+        <StudentLoans
+          v-show="activeSection === 'studentLoans'"
+          :studentLoans="studentLoans"
+        />
+        <Vehicles
+          v-show="activeSection === 'vehicles'"
+          :vehicles="vehicles"
+        />
       </div>
       <div class="column is-3">
         <aside class="menu box">
@@ -122,6 +129,16 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
+import Personal from './Personal'
+import Financial from './Financial'
+import Housing from './Housing'
+import Utilities from './Utilities'
+import Savings from './Savings'
+import Insurance from './Insurance'
+import LivingExpenses from './LivingExpenses'
+import ConsumerDebt from './ConsumerDebt'
+import StudentLoans from './StudentLoans'
+import Vehicles from './Vehicles'
 
 export default {
   data () {
@@ -142,6 +159,27 @@ export default {
     },
     housing () {
       return this.profile.housing || {}
+    },
+    utilities () {
+      return this.profile.utilities || {}
+    },
+    savings () {
+      return this.profile.savings || {}
+    },
+    insurance () {
+      return this.profile.insurance || {}
+    },
+    livingExpenses () {
+      return this.profile.livingExpenses || {}
+    },
+    consumerDebt () {
+      return this.profile.consumerDebt || {}
+    },
+    studentLoans () {
+      return this.profile.studentLoans || {}
+    },
+    vehicles () {
+      return this.profile.vehicles || {}
     }
   },
   methods: {
@@ -152,6 +190,18 @@ export default {
   },
   mounted () {
     this.fetchUser({ id: this.$route.params.id })
+  },
+  components: {
+    Personal,
+    Financial,
+    Housing,
+    Utilities,
+    Savings,
+    Insurance,
+    LivingExpenses,
+    ConsumerDebt,
+    StudentLoans,
+    Vehicles
   }
 }
 </script>
