@@ -29,7 +29,7 @@ const actions = {
       })
   },
   fetchUser ({ commit }, { id }) {
-    axios.get(`${process.env.API_URL}users/${id}`)
+    axios.get(`${process.env.API_URL}users/${id}`, { headers: { 'Authorization': getAuthHeader() } })
       .then(({ data }) => {
         commit('setUser', { user: data })
       })
