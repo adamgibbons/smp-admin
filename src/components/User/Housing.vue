@@ -24,7 +24,7 @@
 
     <div class="admin-field">
       <div class="label">Included in Monthly Mortgage Payment</div>
-      <div class="value">{{housing.monthlyMortgagePaymentIncludes || '-'}}</div>
+      <div class="value">{{housing.monthlyMortgagePaymentIncludes | list}}</div>
     </div>
 
     <div class="admin-field">
@@ -62,6 +62,13 @@
 
 <script>
 export default {
-  props: ['housing']
+  props: ['housing'],
+  filters: {
+    list: (items) => {
+      if (!items || items.length === 0) return '-'
+
+      return items.join(', ')
+    }
+  }
 }
 </script>
