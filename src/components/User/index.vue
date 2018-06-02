@@ -205,3 +205,13 @@ export default {
   }
 }
 </script>
+
+<style>
+  .admin-field {
+    margin: 1em 0;
+  }
+  .admin-field .label,
+  .admin-field .label:not(:last-child) {
+    margin-bottom: 0;
+  }
+</style>
