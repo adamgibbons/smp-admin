@@ -8,7 +8,7 @@ import store from './store'
 Vue.config.productionTip = false
 
 Vue.filter('dollars', (number) => {
-  if (!number && !number === 0) return '-'
+  if (!number) return '-'
 
   if (number === 'skip') return 'skipped'
 

@@ -7,7 +7,7 @@
           <ul>
             <li v-for="({ name, amount }, index) in selectedExpenses" :key="index">
               {{name}}:
-              {{amount}}
+              {{amount | dollars}}
             </li>
           </ul>
         </div>
