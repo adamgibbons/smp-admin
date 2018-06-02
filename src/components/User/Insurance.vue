@@ -1,12 +1,16 @@
 <template>
   <div>
-    <h4 class="title is-4">Insurance Information</h4>
+    <ExpenseList title="Insurance Policies" :expenses="insurance" />
+    <hr>
     <pre>{{insurance}}</pre>
   </div>
 </template>
 
 <script>
+import ExpenseList from './ExpenseList'
+
 export default {
-  props: ['insurance']
+  props: ['insurance'],
+  components: { ExpenseList }
 }
 </script>

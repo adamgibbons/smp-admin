@@ -6,8 +6,8 @@
       <thead>
         <tr>
           <th>Name</th>
-          <th>Email</th>
           <th>Created</th>
+          <th>Email</th>
           <!-- <th>Updated</th> -->
           <th></th>
         </tr>
@@ -15,8 +15,8 @@
       <tbody>
         <tr v-for="({name, email, created, _id}, index) in users" :key="index">
           <td><router-link :to="{name: 'User', params: { id: _id }}">{{name}}</router-link></td>
-          <td><a :href="'mailto:' + email">{{email}}</a></td>
           <td>{{created | date}}</td>
+          <td><a :href="'mailto:' + email">{{email}}</a></td>
           <!-- <td>timestamp</td> -->
           <td>actions</td>
         </tr>
