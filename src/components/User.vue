@@ -1,6 +1,7 @@
 <template>
   <div class="content">
     <h3 class="title is-3">User</h3>
+    <pre>{{selectedUser}}</pre>
   </div>
 </template>
 
@@ -9,7 +10,7 @@ import { mapActions, mapGetters } from 'vuex'
 
 export default {
   computed: {
-    ...mapGetters(['user'])
+    ...mapGetters(['selectedUser'])
   },
   methods: {
     ...mapActions(['fetchUser'])
