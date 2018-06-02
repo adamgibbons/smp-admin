@@ -1,5 +1,9 @@
 import axios from 'axios'
 
+function getAuthHeader () {
+  return `Bearer ${localStorage.getItem('token')}`
+}
+
 const state = {
   users: [],
   selectedUser: {}
@@ -16,7 +20,7 @@ const getters = {
 
 const actions = {
   fetchUsers ({ commit }) {
-    axios.get(`${process.env.API_URL}users`)
+    axios.get(`${process.env.API_URL}users`, { headers: { 'Authorization': getAuthHeader() } })
       .then(({ data }) => {
         commit('setUsers', { users: data })
       })
