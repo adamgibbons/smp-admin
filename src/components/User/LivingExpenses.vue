@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ExpenseList title="Living Expenses" :expenses="livingExpenses" />
+    <ExpenseList title="Living Expenses" :expenses="livingExpenses" filterType="livingExpenses"/>
     <hr>
     <pre>{{livingExpenses}}</pre>
   </div>

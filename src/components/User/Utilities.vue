@@ -1,5 +1,5 @@
 <template>
-  <ExpenseList title="Utilities" :expenses="utilities" />
+  <ExpenseList title="Utilities" :expenses="utilities" filterType="utilities" />
 </template>
 
 <script>

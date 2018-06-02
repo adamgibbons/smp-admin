@@ -6,7 +6,9 @@
           <h5 class="title is-5">Selected by User</h5>
           <ul>
             <li v-for="({ name, amount }, index) in selectedExpenses" :key="index">
-              {{name}}:
+              <span v-if="filterType === 'insurance'">{{name | insuranceLabels}}</span>
+              <span v-if="filterType === 'livingExpenses'">{{name | livingExpenseLabels}}</span>
+              <span v-if="filterType === 'utilities'">{{name | utilitiesLabels}}</span>
               {{amount | dollars}}
             </li>
           </ul>
@@ -15,7 +17,9 @@
           <ul>
             <h5 class="title is-5">Not Selected</h5>
             <li v-for="({ name, amount }, index) in unselectedExpenses" :key="index">
-              {{name}}
+              <span v-if="filterType === 'insurance'">{{name | insuranceLabels}}</span>
+              <span v-if="filterType === 'livingExpenses'">{{name | livingExpenseLabels}}</span>
+              <span v-if="filterType === 'utilities'">{{name | utilitiesLabels}}</span>
             </li>
           </ul>
         </div>
@@ -24,8 +28,13 @@
 </template>
 
 <script>
+import livingExpenseLabels from '@/filters/living-expense-labels'
+import insuranceLabels from '@/filters/insurance-labels'
+import utilitiesLabels from '@/filters/utilities-labels'
+
 export default {
-  props: ['title', 'expenses'],
+  props: ['title', 'expenses', 'filterType'],
+  filters: { livingExpenseLabels, insuranceLabels, utilitiesLabels },
   computed: {
     selectedExpenses () {
       return Object.entries(this.expenses).filter(([expense, { include, amount }]) => {
