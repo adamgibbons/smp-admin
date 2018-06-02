@@ -4,7 +4,7 @@
 
     <div class="admin-field">
       <div class="label">Monthly Household Income</div>
-      <div class="value">{{financial.monthlyHouseholdIncome || '-'}}</div>
+      <div class="value">{{financial.monthlyHouseholdIncome | dollars}}</div>
     </div>
 
     <div class="admin-field">

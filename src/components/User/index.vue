@@ -213,5 +213,11 @@ export default {
   .admin-field .label,
   .admin-field .label:not(:last-child) {
     margin-bottom: 0;
+    font-size: 1em;
+    font-weight: 400;
+  }
+  .admin-field .value {
+    font-size: 1.33em;
+    font-weight: 600;
   }
 </style>

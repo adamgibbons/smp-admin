@@ -7,6 +7,12 @@ import store from './store'
 
 Vue.config.productionTip = false
 
+Vue.filter('dollars', (number) => {
+  if (!number && !number === 0) return '-'
+
+  return `$${parseInt(number).toLocaleString()}`
+})
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
