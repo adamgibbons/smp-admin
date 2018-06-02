@@ -18,7 +18,10 @@
           <td>{{created | date}}</td>
           <td><a :href="'mailto:' + email">{{email}}</a></td>
           <!-- <td>timestamp</td> -->
-          <td>actions</td>
+          <td>
+            <button class="button is-small">Some action</button>
+            <button class="button is-small">Other action</button>
+          </td>
         </tr>
       </tbody>
     </table>

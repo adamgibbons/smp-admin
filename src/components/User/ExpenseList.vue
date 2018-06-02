@@ -3,25 +3,41 @@
     <h4 class="title is-4">{{title}}</h4>
     <div class="columns">
         <div class="column">
-          <h5 class="title is-5">Selected by User</h5>
-          <ul>
-            <li v-for="({ name, amount }, index) in selectedExpenses" :key="index">
-              <span v-if="filterType === 'insurance'">{{name | insuranceLabels}}</span>
-              <span v-if="filterType === 'livingExpenses'">{{name | livingExpenseLabels}}</span>
-              <span v-if="filterType === 'utilities'">{{name | utilitiesLabels}}</span>
-              {{amount | dollars}}
-            </li>
-          </ul>
+          <table class="table is-striped">
+            <thead>
+              <tr>
+                <th colspan="2">Selected by User</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="({ name, amount }, index) in selectedExpenses" :key="index">
+                <td>
+                  <span v-if="filterType === 'insurance'">{{name | insuranceLabels}}</span>
+                  <span v-if="filterType === 'livingExpenses'">{{name | livingExpenseLabels}}</span>
+                  <span v-if="filterType === 'utilities'">{{name | utilitiesLabels}}</span>
+                </td>
+                <td>{{amount | dollars}}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
         <div class="column">
-          <ul>
-            <h5 class="title is-5">Not Selected</h5>
-            <li v-for="({ name, amount }, index) in unselectedExpenses" :key="index">
-              <span v-if="filterType === 'insurance'">{{name | insuranceLabels}}</span>
-              <span v-if="filterType === 'livingExpenses'">{{name | livingExpenseLabels}}</span>
-              <span v-if="filterType === 'utilities'">{{name | utilitiesLabels}}</span>
-            </li>
-          </ul>
+          <table class="table is-striped">
+            <thead>
+              <tr>
+                <th colspan="2">Not Selected</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="({ name, amount }, index) in unselectedExpenses" :key="index">
+                <td>
+                  <span v-if="filterType === 'insurance'">{{name | insuranceLabels}}</span>
+                  <span v-if="filterType === 'livingExpenses'">{{name | livingExpenseLabels}}</span>
+                  <span v-if="filterType === 'utilities'">{{name | utilitiesLabels}}</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
     </div>
   </div>

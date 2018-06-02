@@ -43,9 +43,8 @@
         </div>
       </div>
     </div>
-
-    <hr>
-    <pre>{{personal}}</pre>
+    <!-- <hr>
+    <pre>{{personal}}</pre> -->
   </div>
 </template>
 
