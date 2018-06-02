@@ -19,7 +19,7 @@
 
     <div class="admin-field">
       <div class="label">Monthly Mortgage Payment</div>
-      <div class="value">{{housing.monthlyMortgagePayment || '-'}}</div>
+      <div class="value">{{housing.monthlyMortgagePayment | dollars}}</div>
     </div>
 
     <div class="admin-field">
@@ -29,17 +29,17 @@
 
     <div class="admin-field">
       <div class="label">Annual Property Tax</div>
-      <div class="value">{{housing.annualPropertyTax || '-'}}</div>
+      <div class="value">{{housing.annualPropertyTax | dollars}}</div>
     </div>
 
     <div class="admin-field">
       <div class="label">Loan Balance</div>
-      <div class="value">{{housing.loanBalance || '-'}}</div>
+      <div class="value">{{housing.loanBalance | dollars}}</div>
     </div>
 
     <div class="admin-field">
       <div class="label">Current Interest Rate</div>
-      <div class="value">{{housing.currentInterestRate || '-'}}</div>
+      <div class="value">{{housing.currentInterestRate | percentage}}</div>
     </div>
 
     <div class="admin-field">

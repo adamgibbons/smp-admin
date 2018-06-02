@@ -10,7 +10,15 @@ Vue.config.productionTip = false
 Vue.filter('dollars', (number) => {
   if (!number && !number === 0) return '-'
 
+  if (number === 'skip') return 'skipped'
+
   return `$${parseInt(number).toLocaleString()}`
+})
+
+Vue.filter('percentage', (number) => {
+  if (!number && !number === 0) return '-'
+
+  return `${number}%`
 })
 
 /* eslint-disable no-new */

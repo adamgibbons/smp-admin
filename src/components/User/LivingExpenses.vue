@@ -1,12 +1,16 @@
 <template>
   <div>
-    <h4 class="title is-4">Living Expenses</h4>
+    <ExpenseList title="Living Expenses" :expenses="livingExpenses" />
+    <hr>
     <pre>{{livingExpenses}}</pre>
   </div>
 </template>
 
 <script>
+import ExpenseList from './ExpenseList'
+
 export default {
-  props: ['livingExpenses']
+  props: ['livingExpenses'],
+  components: { ExpenseList }
 }
 </script>
