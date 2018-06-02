@@ -7,7 +7,8 @@ const state = {
   },
   auth: !!localStorage.getItem('token'),
   token: null,
-  authenticating: false
+  authenticating: false,
+  loginMessage: { success: null, error: null }
 }
 
 const getters = {
@@ -19,6 +20,9 @@ const getters = {
   },
   authenticating: state => {
     return state.authenticating
+  },
+  loginMessage: state => {
+    return state.loginMessage
   }
 }
 

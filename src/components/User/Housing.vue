@@ -56,7 +56,7 @@
       <div class="label">Does Rent Include Utilities?</div>
       <div class="value">{{housing.rentIncludesUtilities || '-'}}</div>
     </div>
-    <pre>{{housing}}</pre>
+    <!-- <pre>{{housing}}</pre> -->
   </div>
 </template>
 

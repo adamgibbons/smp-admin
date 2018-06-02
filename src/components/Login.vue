@@ -21,9 +21,15 @@
           </div>
         </div>
 
+        <div v-show="loginMessage.error" class="notification is-danger">
+          <!-- <button class="delete"></button> -->
+          {{loginMessage.error}}
+        </div>
+
         <div class="field is-grouped">
           <div class="control">
             <button v-show="!authenticating" class="button is-link" type="submit">Sign in</button>
+            <p v-show="authenticating"><em>Signing in...</em></p>
           </div>
         </div>
       </form>
@@ -35,7 +41,7 @@
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
-  computed: mapGetters(['authenticating', 'authenticated']),
+  computed: mapGetters(['authenticating', 'authenticated', 'loginMessage']),
   watch: {
     authenticated (newVal, oldVal) {
       if (newVal && !oldVal) {
