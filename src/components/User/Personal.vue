@@ -20,10 +20,6 @@
           <div class="value">{{personal.maritalStatus || '-'}}</div>
         </div>
         <div class="admin-field">
-          <div class="label">Dependents</div>
-          <div class="value">{{personal.dependents || '-'}}</div>
-        </div>
-        <div class="admin-field">
           <div class="label">Occupation</div>
           <div class="value">{{personal.occupation || '-'}}</div>
         </div>
@@ -47,6 +43,9 @@
         </div>
       </div>
     </div>
+
+    <hr>
+    <pre>{{personal}}</pre>
   </div>
 </template>
 
