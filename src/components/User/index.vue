@@ -207,6 +207,9 @@ export default {
 </script>
 
 <style>
+  .menu {
+    font-weight: 500;
+  }
   .admin-field {
     margin: 1em 0;
   }
