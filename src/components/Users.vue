@@ -19,8 +19,9 @@
           <td><a :href="'mailto:' + email">{{email}}</a></td>
           <td><code>{{_id}}</code></td>
           <td>
-            <button class="button is-small">Some action</button>
-            <button class="button is-small">Other action</button>
+            <router-link class="button is-small is-link is-outlined" :to="{name: 'UserProfile', params: { id: _id }}">Details</router-link>
+            &nbsp;
+            <router-link class="button is-small is-link is-outlined" :to="{name: 'UserProfile', params: { id: _id }}">Notes</router-link>
           </td>
         </tr>
       </tbody>
