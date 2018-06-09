@@ -14,7 +14,7 @@
       </thead>
       <tbody>
         <tr v-for="({name, email, created, _id}, index) in users" :key="index">
-          <td><router-link :to="{name: 'User', params: { id: _id }}">{{name}}</router-link></td>
+          <td><router-link :to="{name: 'UserProfile', params: { id: _id }}">{{name}}</router-link></td>
           <td>{{created | date}}</td>
           <td><a :href="'mailto:' + email">{{email}}</a></td>
           <td><code>{{_id}}</code></td>
