@@ -4,8 +4,9 @@
 
     <div class="tabs">
       <ul>
-        <li class="is-active"><a>Details</a></li>
-        <li><a>Queries</a></li>
+        <!-- <li class="is-active"><a>Profile</a></li> -->
+        <li :class="{'is-active': $route.name === 'UserProfile'}"><router-link :to="{name: 'UserProfile'}">Profile</router-link></li>
+        <li :class="{'is-active': $route.name === 'UserQueries'}"><router-link :to="{name: 'UserQueries'}">Queries</router-link></li>
       </ul>
     </div>
 

@@ -4,6 +4,7 @@ import Login from '@/components/Login'
 import Users from '@/components/Users'
 import User from '@/components/User'
 import UserProfile from '@/components/User/UserProfile'
+import UserQueries from '@/components/User/UserQueries'
 
 Vue.use(Router)
 
@@ -32,6 +33,11 @@ const router = new Router({
           name: 'UserProfile',
           path: 'profile',
           component: UserProfile
+        },
+        {
+          name: 'UserQueries',
+          path: 'queries',
+          component: UserQueries
         }
       ]
     }
