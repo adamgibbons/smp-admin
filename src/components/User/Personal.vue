@@ -53,9 +53,3 @@ export default {
   props: ['personal']
 }
 </script>
-
-<style scoped>
-  h4.title.is-4 {
-    margin-bottom: 0.5em;
-  }
-</style>

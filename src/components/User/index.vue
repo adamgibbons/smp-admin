@@ -1,125 +1,18 @@
 <template>
   <div>
     <h3 class="title is-3">User: {{selectedUser.name}}</h3>
-    <hr>
     <div class="columns">
       <div class="column">
-        <Personal
-          v-show="activeSection === 'personal'"
-          :personal="personal"
-        />
-        <Financial
-          v-show="activeSection === 'financial'"
-          :financial="financial"
-        />
-        <Housing
-          v-show="activeSection === 'housing'"
-          :housing="housing"
-        />
-        <Utilities
-          v-show="activeSection === 'utilities'"
-          :utilities="utilities"
-        />
-        <Savings
-          v-show="activeSection === 'savings'"
-          :savings="savings"
-        />
-        <Insurance
-          v-show="activeSection === 'insurance'"
-          :insurance="insurance"
-        />
-        <LivingExpenses
-          v-show="activeSection === 'livingExpenses'"
-          :livingExpenses="livingExpenses"
-        />
-        <ConsumerDebt
-          v-show="activeSection === 'consumerDebt'"
-          :consumerDebt="consumerDebt"
-        />
-        <StudentLoans
-          v-show="activeSection === 'studentLoans'"
-          :studentLoans="studentLoans"
-        />
-        <Vehicles
-          v-show="activeSection === 'vehicles'"
-          :vehicles="vehicles"
-        />
-      </div>
-      <div class="column is-3">
-        <aside class="menu box">
-          <ul class="menu-list">
-            <li>
-              <a
-                @click="selectSection('personal')"
-                :class="{'is-active': activeSection === 'personal'}"
-              >Personal
-              </a>
-            </li>
-            <li>
-              <a
-                @click="selectSection('financial')"
-                :class="{'is-active': activeSection === 'financial'}"
-                >Financial
-              </a>
-            </li>
-            <li>
-              <a
-                @click="selectSection('housing')"
-                :class="{'is-active': activeSection === 'housing'}"
-                >Housing
-              </a>
-            </li>
-            <li>
-              <a
-                @click="selectSection('utilities')"
-                :class="{'is-active': activeSection === 'utilities'}"
-                >Utilities
-              </a>
-            </li>
-            <li>
-              <a
-                @click="selectSection('savings')"
-                :class="{'is-active': activeSection === 'savings'}"
-                >Savings
-              </a>
-            </li>
-            <li>
-              <a
-                @click="selectSection('insurance')"
-                :class="{'is-active': activeSection === 'insurance'}"
-                >Insurance
-              </a>
-            </li>
-            <li>
-              <a
-                @click="selectSection('livingExpenses')"
-                :class="{'is-active': activeSection === 'livingExpenses'}"
-                >Living Expenses
-              </a>
-            </li>
-            <li>
-              <a
-                @click="selectSection('consumerDebt')"
-                :class="{'is-active': activeSection === 'consumerDebt'}"
-                >Consumer Debt
-              </a>
-            </li>
-            <li>
-              <a
-                @click="selectSection('studentLoans')"
-                :class="{'is-active': activeSection === 'studentLoans'}"
-                >Student Loans
-              </a>
-            </li>
-            <li>
-              <a
-                @click="selectSection('vehicles')"
-                :class="{'is-active': activeSection === 'vehicles'}"
-                >Vehicles
-              </a>
-            </li>
-          </ul>
-        </aside>
+        <Personal :personal="personal" />
+        <Financial :financial="financial" />
+        <Housing :housing="housing" />
+        <Utilities :utilities="utilities" />
+        <Savings :savings="savings" />
+        <Insurance :insurance="insurance" />
+        <LivingExpenses :livingExpenses="livingExpenses" />
+        <ConsumerDebt :consumerDebt="consumerDebt" />
+        <StudentLoans :studentLoans="studentLoans" />
+        <Vehicles :vehicles="vehicles" />
       </div>
     </div>
 
@@ -183,10 +76,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['fetchUser']),
-    selectSection (section) {
-      this.activeSection = section
-    }
+    ...mapActions(['fetchUser'])
   },
   mounted () {
     this.fetchUser({ id: this.$route.params.id })
@@ -222,5 +112,10 @@ export default {
   .admin-field .value {
     font-size: 1.33em;
     font-weight: 600;
+  }
+  h4.title.is-4 {
+    background-color: #ddd;
+    padding: 0.5em 1em;
+    margin: 0.5em 0;
   }
 </style>
