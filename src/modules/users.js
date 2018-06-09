@@ -36,6 +36,24 @@ const actions = {
       .catch((error) => {
         console.log(error)
       })
+  },
+  downloadCsvReport ({ getters }) {
+    axios.get(`${process.env.API_URL}users/${getters.selectedUser._id}/report`, { headers:
+      {
+        'Authorization': getAuthHeader()
+      }
+    })
+      .then(({ data }) => {
+        const url = window.URL.createObjectURL(new Blob([data]))
+        const link = document.createElement('a')
+        link.href = url
+        link.setAttribute('download', `User_Report_${getters.selectedUser._id}.csv`)
+        document.body.appendChild(link)
+        link.click()
+      })
+      .catch((error) => {
+        console.log(error)
+      })
   }
 }
 
