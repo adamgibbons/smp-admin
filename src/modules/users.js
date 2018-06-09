@@ -54,6 +54,25 @@ const actions = {
       .catch((error) => {
         console.log(error)
       })
+  },
+  removeUser ({ commit }, { id }) {
+    axios({
+      method: 'delete',
+      url: `${process.env.API_URL}users/${id}`,
+      headers: {
+        'Authorization': getAuthHeader(),
+        'Content-type': 'application/json',
+        'Accept': 'application/json'
+      },
+      data: { foo: true }
+    })
+      .then(({ status }) => {
+        commit('removeUser', { id })
+        console.log('deleted...', status)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
   }
 }
 
@@ -63,6 +82,10 @@ const mutations = {
   },
   setUser (state, { user }) {
     state.selectedUser = user
+  },
+  removeUser (state, { id }) {
+    const index = state.users.findIndex(user => user._id === id)
+    state.users.splice(index, 1)
   }
 }
 
