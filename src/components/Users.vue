@@ -18,10 +18,12 @@
           <td>{{created | date}}</td>
           <td><a :href="'mailto:' + email">{{email}}</a></td>
           <td><code>{{_id}}</code></td>
-          <td>
+          <td style="text-align:right;">
             <router-link class="button is-small is-link is-outlined" :to="{name: 'UserProfile', params: { id: _id }}">Details</router-link>
             &nbsp;
             <router-link class="button is-small is-link is-outlined" :to="{name: 'UserProfile', params: { id: _id }}">Notes</router-link>
+            &nbsp;
+            <button class="button is-small is-danger is-outlined">Delete</button>
           </td>
         </tr>
       </tbody>
