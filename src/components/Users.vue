@@ -8,7 +8,7 @@
           <th>Name</th>
           <th>Created</th>
           <th>Email</th>
-          <!-- <th>Updated</th> -->
+          <th>ID</th>
           <th></th>
         </tr>
       </thead>
@@ -17,7 +17,7 @@
           <td><router-link :to="{name: 'User', params: { id: _id }}">{{name}}</router-link></td>
           <td>{{created | date}}</td>
           <td><a :href="'mailto:' + email">{{email}}</a></td>
-          <!-- <td>timestamp</td> -->
+          <td><code>{{_id}}</code></td>
           <td>
             <button class="button is-small">Some action</button>
             <button class="button is-small">Other action</button>
@@ -50,3 +50,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  code {
+    color: #666;
+  }
+</style>
