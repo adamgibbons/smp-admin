@@ -24,8 +24,8 @@
       <thead>
         <tr>
           <th>Name</th>
-          <th>Created</th>
           <th>Email</th>
+          <th>Created</th>
           <th>ID</th>
           <th></th>
         </tr>
@@ -33,8 +33,8 @@
       <tbody>
         <tr v-for="({name, email, created, _id}, index) in users" :key="index">
           <td><router-link :to="{name: 'UserProfile', params: { id: _id }}">{{name}}</router-link></td>
-          <td>{{created | date}}</td>
           <td><a :href="'mailto:' + email">{{email}}</a></td>
+          <td>{{created | date}}</td>
           <td><code>{{_id}}</code></td>
           <td style="text-align:right;">
             <router-link class="button is-small is-link is-outlined" :to="{name: 'UserProfile', params: { id: _id }}">Details</router-link>
