@@ -5,6 +5,8 @@ import Users from '@/components/Users'
 import User from '@/components/User'
 import UserProfile from '@/components/User/UserProfile'
 import UserQueries from '@/components/User/UserQueries'
+import UserSnapshot from '@/components/User/UserSnapshot'
+import UserNotes from '@/components/User/UserNotes'
 
 Vue.use(Router)
 
@@ -33,6 +35,16 @@ const router = new Router({
           name: 'UserProfile',
           path: 'profile',
           component: UserProfile
+        },
+        {
+          name: 'UserSnapshot',
+          path: 'snapshot',
+          component: UserSnapshot
+        },
+        {
+          name: 'UserNotes',
+          path: 'notes',
+          component: UserNotes
         },
         {
           name: 'UserQueries',

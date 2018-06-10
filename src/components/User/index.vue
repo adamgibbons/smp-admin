@@ -45,10 +45,12 @@
       </div>
     </div>
 
-    <div class="tabs">
+    <div class="tabs is-large">
       <ul>
         <!-- <li class="is-active"><a>Profile</a></li> -->
         <li :class="{'is-active': $route.name === 'UserProfile'}"><router-link :to="{name: 'UserProfile'}">Profile</router-link></li>
+        <li :class="{'is-active': $route.name === 'UserSnapshot'}"><router-link :to="{name: 'UserSnapshot'}">50/30/20 Snapshot</router-link></li>
+        <li :class="{'is-active': $route.name === 'UserNotes'}"><router-link :to="{name: 'UserNotes'}">Notes</router-link></li>
         <li :class="{'is-active': $route.name === 'UserQueries'}"><router-link :to="{name: 'UserQueries'}">Queries</router-link></li>
       </ul>
     </div>
@@ -106,5 +108,12 @@ export default {
     background-color: #ddd;
     padding: 0.5em 1em;
     margin: 0.5em 0;
+  }
+</style>
+
+<style scoped>
+  .tabs li.is-active a {
+    font-weight: 500;
+    border-width: 2px;
   }
 </style>
