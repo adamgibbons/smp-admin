@@ -36,7 +36,7 @@
             <tbody>
               <tr v-for="({path, amount}, index) in includedInCalculations(needs)" :key="index">
                 <td>{{path}}</td>
-                <td>{{amount}}</td>
+                <td>{{amount | dollars}}</td>
               </tr>
             </tbody>
           </table>
@@ -70,7 +70,7 @@
             <tbody>
               <tr v-for="({path, amount}, index) in includedInCalculations(wants)" :key="index">
                 <td>{{path}}</td>
-                <td>{{amount}}</td>
+                <td>{{amount | dollars}}</td>
               </tr>
             </tbody>
           </table>
@@ -104,16 +104,13 @@
             <tbody>
               <tr v-for="({path, amount}, index) in includedInCalculations(savings)" :key="index">
                 <td>{{path}}</td>
-                <td>{{amount}}</td>
+                <td>{{amount | dollars}}</td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
     </div>
-
-    <hr>
-    <pre>{{selectedUser.profile}}</pre>
   </div>
 </template>
 
@@ -130,54 +127,46 @@ export default {
   computed: {
     ...mapGetters(['selectedUser', 'results', 'score', 'suggested', 'questionsByType']),
     needs () {
-      try {
-        return this.questionsByType.needs.map((path) => {
-          if (path.indexOf('vehicles') !== -1) {
-            return this.selectedUser.profile.vehicles.map(({ monthlyLeasePayment, monthlyPayment }) => {
-              debugger
-              return { path, amount: monthlyPayment || monthlyLeasePayment || 0 }
-            })
-          }
-          if (path.indexOf('consumerDebt') !== -1) {
-            return this.selectedUser.profile.consumerDebt.map(({ minMonthlyPayment }) => {
-              return { path, amount: minMonthlyPayment || 0 }
-            })
-          }
-          if (path.indexOf('studentLoans') !== -1) {
-            return this.selectedUser.profile.studentLoans.map(({ minMonthlyPayment }) => {
-              return { path, amount: minMonthlyPayment || 0 }
-            })
-          }
+      return this.questionsByType.needs.map((path) => {
+        if (path.indexOf('vehicles') !== -1) {
+          return this.selectedUser.profile.vehicles.map(({ monthlyLeasePayment, monthlyPayment }) => {
+            debugger
+            return { path, amount: monthlyPayment || monthlyLeasePayment || 0 }
+          })
+        }
+        if (path.indexOf('consumerDebt') !== -1) {
+          return this.selectedUser.profile.consumerDebt.map(({ minMonthlyPayment }) => {
+            return { path, amount: minMonthlyPayment || 0 }
+          })
+        }
+        if (path.indexOf('studentLoans') !== -1) {
+          return this.selectedUser.profile.studentLoans.map(({ minMonthlyPayment }) => {
+            return { path, amount: minMonthlyPayment || 0 }
+          })
+        }
 
-          return {
-            path,
-            amount: get(this.selectedUser.profile, path, 0) || 0
-          }
-        })
-      } catch (e) {}
-      return []
+        return {
+          path,
+          amount: get(this.selectedUser.profile, path, 0) || 0
+        }
+      })
     },
     wants () {
-      try {
-        return this.questionsByType.wants.map((path) => {
-          return {
-            path,
-            amount: get(this.selectedUser.profile, path, 0) || 0
-          }
-        })
-      } catch (e) {}
-      return []
+      return this.questionsByType.wants.map((path) => {
+        return {
+          path,
+          amount: get(this.selectedUser.profile, path, 0) || 0
+        }
+      })
     },
-    savings: state => {
-      try {
-        return this.questionsByType.savings.map((path) => {
-          return {
-            path,
-            amount: get(this.selectedUser.profile, path, 0) || 0
-          }
-        })
-      } catch (e) {}
-      return []
+    savings () {
+      return this.questionsByType.savings.map((path) => {
+        console.log(path)
+        return {
+          path,
+          amount: get(this.selectedUser.profile, path, 0) || 0
+        }
+      })
     }
   }
 }
