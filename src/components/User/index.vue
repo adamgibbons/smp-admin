@@ -1,12 +1,11 @@
 <template>
   <div>
-    <h3 class="title is-3">User Details</h3>
-
+    <!-- <h3 class="title is-3">User Details</h3> -->
     <div class="columns">
       <div class="column is-narrow">
         <div class="admin-field header">
           <div class="label">
-            Name
+            User Name
           </div>
           <div class="value">
             {{selectedUser.name}}
@@ -45,7 +44,7 @@
       </div>
     </div>
 
-    <div class="tabs is-large">
+    <div class="tabs is-boxed is-large">
       <ul>
         <!-- <li class="is-active"><a>Profile</a></li> -->
         <li :class="{'is-active': $route.name === 'UserProfile'}"><router-link :to="{name: 'UserProfile'}">Profile</router-link></li>
@@ -85,9 +84,10 @@ export default {
   }
 
   .admin-field.header {
-    border: 1px solid #ddd;
-    padding: 1em;
-    margin: 0;
+    /*border: 1px solid #ddd;
+    padding: 1em;*/
+    font-size: 1.2em;
+    margin-right: 1em;
   }
 
   .admin-field .label {

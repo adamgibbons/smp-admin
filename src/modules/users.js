@@ -37,6 +37,17 @@ const actions = {
         console.log(error)
       })
   },
+  updateNotes ({ commit, getters }, { notes }) {
+    axios.put(
+      `${process.env.API_URL}users/${getters.selectedUser._id}/notes`,
+      { notes },
+      { headers: { 'Authorization': getAuthHeader() }
+      })
+      .then(() => { commit('setNotes', { notes }) })
+      .catch((error) => {
+        console.log(error)
+      })
+  },
   downloadCsvReport ({ getters }) {
     axios.get(`${process.env.API_URL}users/${getters.selectedUser._id}/report`, { headers:
       {
@@ -86,6 +97,9 @@ const mutations = {
   removeUser (state, { id }) {
     const index = state.users.findIndex(user => user._id === id)
     state.users.splice(index, 1)
+  },
+  setNotes (state, { notes }) {
+    state.selectedUser.notes = notes
   }
 }
 
