@@ -28,7 +28,7 @@
             Created
           </div>
           <div class="value">
-            {{selectedUser.createdAt || 'n/a'}}
+            {{selectedUser.created | date}}
           </div>
         </div>
       </div>

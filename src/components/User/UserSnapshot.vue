@@ -76,17 +76,6 @@ import { mapGetters } from 'vuex'
 export default {
   computed: {
     ...mapGetters(['selectedUser', 'results', 'score', 'suggested'])
-  },
-  filters: {
-    dollars: function (input) {
-      const result = Number(input).toLocaleString()
-      if (result === 'NaN') return '-'
-      return `$${result}`
-    },
-    percentage: function (input) {
-      const result = Math.round(parseFloat(input))
-      return `${result}%`
-    }
   }
 }
 </script>

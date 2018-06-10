@@ -90,13 +90,6 @@ export default {
   },
   mounted () {
     this.$store.dispatch('fetchUsers')
-  },
-  filters: {
-    date: (date) => {
-      if (date) return new Date(date).toLocaleString()
-
-      return '-'
-    }
   }
 }
 </script>

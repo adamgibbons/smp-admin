@@ -18,7 +18,13 @@ Vue.filter('dollars', (number) => {
 Vue.filter('percentage', (number) => {
   if (!number && !number === 0) return '-'
 
-  return `${number}%`
+  return `${Math.round(number)}%`
+})
+
+Vue.filter('date', (date) => {
+  if (date) return new Date(date).toLocaleString()
+
+  return '-'
 })
 
 /* eslint-disable no-new */
