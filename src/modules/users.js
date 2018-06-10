@@ -31,6 +31,9 @@ const getters = {
   selectedUser: state => {
     return state.selectedUser
   },
+  questionsByType: state => {
+    return state.questionsByType
+  },
   needsResults: state => {
     const needs = state.questionsByType.needs.map((path) => {
       if (path.indexOf('vehicles') !== -1) {
