@@ -64,13 +64,14 @@ import { mapActions, mapGetters } from 'vuex'
 
 export default {
   methods: {
-    ...mapActions(['fetchUser'])
+    ...mapActions(['fetchUser', 'fetchQuestions'])
   },
   computed: {
     ...mapGetters(['selectedUser'])
   },
   mounted () {
     this.fetchUser({ id: this.$route.params.id })
+    this.fetchQuestions()
   }
 }
 </script>
