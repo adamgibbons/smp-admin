@@ -39,7 +39,7 @@
           <td style="text-align:right;">
             <router-link class="button is-small is-link is-outlined" :to="{name: 'UserProfile', params: { id: _id }}">Details</router-link>
             &nbsp;
-            <router-link class="button is-small is-link is-outlined" :to="{name: 'UserProfile', params: { id: _id }}">Notes</router-link>
+            <router-link class="button is-small is-link is-outlined" :to="{name: 'UserNotes', params: { id: _id }}">Notes</router-link>
             &nbsp;
             <button class="button is-small is-danger is-outlined" @click="openModal({ name, id: _id })">Delete</button>
           </td>
