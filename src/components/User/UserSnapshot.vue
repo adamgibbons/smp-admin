@@ -9,108 +9,105 @@
           {{selectedUser.profile.financial.monthlyHouseholdIncome | dollars}}
         </div>
       </div>
+      <br>
     </div>
 
     <div class="box">
-      <div class="title is-4">Needs</div>
+      <div class="title is-3">Needs</div>
       <div class="columns">
         <div class="column is-narrow">
           <div class="admin-field">
             <div class="label">Amount</div>
             <div class="value">{{results.needs | dollars}}</div>
           </div>
-
+        </div>
+        <div class="column is-narrow">
           <div class="admin-field">
             <div class="label">Percentage</div>
             <div class="value">{{score.needs | percentage}}</div>
           </div>
         </div>
-        <div class="column">
-          <table class="table is-striped">
-            <thead>
-              <tr>
-                <th>Description</th>
-                <th>Amount</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="({path, amount}, index) in includedInCalculations(needs)" :key="index">
-                <td>{{path}}</td>
-                <td>{{amount | dollars}}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
       </div>
+      <table class="table is-striped">
+        <thead>
+          <tr>
+            <th>Expense</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="({path, amount}, index) in includedInCalculations(needs)" :key="index">
+            <td>{{path}}</td>
+            <td>{{amount | dollars}}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
     <div class="box">
-      <div class="title is-4">Wants</div>
+      <div class="title is-3">Wants</div>
       <div class="columns">
         <div class="column is-narrow">
           <div class="admin-field">
             <div class="label">Amount</div>
             <div class="value">{{results.wants | dollars}}</div>
           </div>
-
+        </div>
+        <div class="column is-narrow">
           <div class="admin-field">
             <div class="label">Percentage</div>
             <div class="value">{{score.wants | percentage}}</div>
           </div>
         </div>
-
-        <div class="column">
-          <table class="table is-striped">
-            <thead>
-              <tr>
-                <th>Description</th>
-                <th>Amount</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="({path, amount}, index) in includedInCalculations(wants)" :key="index">
-                <td>{{path}}</td>
-                <td>{{amount | dollars}}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
       </div>
+      <table class="table is-striped">
+        <thead>
+          <tr>
+            <th>Expense</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="({path, amount}, index) in includedInCalculations(wants)" :key="index">
+            <td>{{path}}</td>
+            <td>{{amount | dollars}}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
     <div class="box">
-      <div class="title is-4">Savings</div>
+      <div class="title is-3">Savings</div>
       <div class="columns">
         <div class="column is-narrow">
           <div class="admin-field">
             <div class="label">Amount</div>
             <div class="value">{{results.savings | dollars}}</div>
           </div>
-
+        </div>
+        <div class="column is-narrow">
           <div class="admin-field">
             <div class="label">Percentage</div>
             <div class="value">{{score.savings | percentage}}</div>
           </div>
         </div>
-
-        <div class="column">
-          <table class="table is-striped">
-            <thead>
-              <tr>
-                <th>Description</th>
-                <th>Amount</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="({path, amount}, index) in includedInCalculations(savings)" :key="index">
-                <td>{{path}}</td>
-                <td>{{amount | dollars}}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
       </div>
+      <table class="table is-striped">
+        <thead>
+          <tr>
+            <th>Expense</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="({path, amount}, index) in includedInCalculations(savings)" :key="index">
+            <td>{{path}}</td>
+            <td>{{amount | dollars}}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+
   </div>
 </template>
 
@@ -174,6 +171,7 @@ export default {
 
 <style scoped>
   .title {
-    margin-bottom: 0;
+    background: #ddd;
+    padding: 0.5em;
   }
 </style>
