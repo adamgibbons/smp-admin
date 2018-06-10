@@ -5,7 +5,7 @@
         <button class="button is-link is-outlined" @click="enterEditMode">Edit</button>
       </div>
       <br>
-      {{selectedUser.notes}}
+      <div style="white-space:pre-wrap;">{{selectedUser.notes}}</div>
     </div>
 
     <div class="has-text-left">

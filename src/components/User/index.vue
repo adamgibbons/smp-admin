@@ -44,7 +44,7 @@
       </div>
     </div>
 
-    <div class="tabs is-boxed is-large">
+    <div class="tabs is-boxed">
       <ul>
         <!-- <li class="is-active"><a>Profile</a></li> -->
         <li :class="{'is-active': $route.name === 'UserProfile'}"><router-link :to="{name: 'UserProfile'}">Profile</router-link></li>
@@ -84,9 +84,6 @@ export default {
   }
 
   .admin-field.header {
-    /*border: 1px solid #ddd;
-    padding: 1em;*/
-    font-size: 1.2em;
     margin-right: 1em;
   }
 
