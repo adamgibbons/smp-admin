@@ -127,7 +127,6 @@ export default {
       return this.questionsByType.needs.map((path) => {
         if (path.indexOf('vehicles') !== -1) {
           return this.selectedUser.profile.vehicles.map(({ monthlyLeasePayment, monthlyPayment }) => {
-            debugger
             return { path, amount: monthlyPayment || monthlyLeasePayment || 0 }
           })
         }
