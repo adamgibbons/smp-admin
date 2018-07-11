@@ -1,6 +1,7 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
+import axios from 'axios'
 import App from './App'
 import router from './router'
 import store from './store'
@@ -25,6 +26,17 @@ Vue.filter('date', (date) => {
   if (date) return new Date(date).toLocaleString()
 
   return '-'
+})
+
+axios.interceptors.response.use((response) => {
+  return response
+}, (error) => {
+  if (error.response.status >= 400) {
+    localStorage.removeItem('token')
+    window.location = '/'
+    return
+  }
+  return Promise.reject(error)
 })
 
 /* eslint-disable no-new */
